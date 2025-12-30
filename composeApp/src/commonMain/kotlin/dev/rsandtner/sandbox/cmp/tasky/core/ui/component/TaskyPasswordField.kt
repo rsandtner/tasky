@@ -89,7 +89,7 @@ fun TaskyPasswordField(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldLightNormalPreview(
+private fun TaskySecretTextFieldLightNormalPreview(
 ) {
     MaterialTheme {
         TaskyPasswordField(
@@ -103,7 +103,7 @@ fun TaskySecretTextFieldLightNormalPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldLightFilledPreview(
+private fun TaskySecretTextFieldLightFilledPreview(
 ) {
     MaterialTheme {
         TaskyPasswordField(
@@ -117,7 +117,7 @@ fun TaskySecretTextFieldLightFilledPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldLightErrorPreview(
+private fun TaskySecretTextFieldLightErrorPreview(
 ) {
     MaterialTheme {
         TaskyPasswordField(
@@ -132,7 +132,7 @@ fun TaskySecretTextFieldLightErrorPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldLightRevealedPreview(
+private fun TaskySecretTextFieldLightRevealedPreview(
 ) {
     MaterialTheme {
         TaskyPasswordField(
@@ -146,7 +146,7 @@ fun TaskySecretTextFieldLightRevealedPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldDarkNormalPreview(
+private fun TaskySecretTextFieldDarkNormalPreview(
 ) {
 
     MaterialTheme(colorScheme = darkColorScheme()) {
@@ -161,7 +161,7 @@ fun TaskySecretTextFieldDarkNormalPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldDarkFilledPreview(
+private fun TaskySecretTextFieldDarkFilledPreview(
 ) {
     MaterialTheme(colorScheme = darkColorScheme()) {
         TaskyPasswordField(
@@ -175,7 +175,7 @@ fun TaskySecretTextFieldDarkFilledPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldDarkErrorPreview(
+private fun TaskySecretTextFieldDarkErrorPreview(
 ) {
     MaterialTheme(colorScheme = darkColorScheme()) {
         TaskyPasswordField(
@@ -190,7 +190,7 @@ fun TaskySecretTextFieldDarkErrorPreview(
 
 @Composable
 @Preview
-fun TaskySecretTextFieldDarkRevealedPreview(
+private fun TaskySecretTextFieldDarkRevealedPreview(
 ) {
     MaterialTheme(colorScheme = darkColorScheme()) {
         TaskyPasswordField(

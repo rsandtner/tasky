@@ -46,7 +46,7 @@ fun TaskyTextField(
 
 @Composable
 @Preview
-fun TaskyTextFieldLightNormalPreview(
+private fun TaskyTextFieldLightNormalPreview(
 ) {
     MaterialTheme {
         TaskyTextField(
@@ -58,7 +58,7 @@ fun TaskyTextFieldLightNormalPreview(
 
 @Composable
 @Preview
-fun TaskyTextFieldLightFilledPreview(
+private fun TaskyTextFieldLightFilledPreview(
 ) {
     MaterialTheme {
         TaskyTextField(
@@ -70,7 +70,7 @@ fun TaskyTextFieldLightFilledPreview(
 
 @Composable
 @Preview
-fun TaskyTextFieldLightErrorPreview(
+private fun TaskyTextFieldLightErrorPreview(
 ) {
     MaterialTheme {
         TaskyTextField(
@@ -83,7 +83,7 @@ fun TaskyTextFieldLightErrorPreview(
 
 @Composable
 @Preview
-fun TaskyTextFieldDarkNormalPreview(
+private fun TaskyTextFieldDarkNormalPreview(
 ) {
     MaterialTheme(colorScheme = darkColorScheme()) {
         TaskyTextField(
@@ -95,7 +95,7 @@ fun TaskyTextFieldDarkNormalPreview(
 
 @Composable
 @Preview
-fun TaskyTextFieldDarkFilledPreview(
+private fun TaskyTextFieldDarkFilledPreview(
 ) {
     MaterialTheme(colorScheme = darkColorScheme()) {
         TaskyTextField(
@@ -107,7 +107,7 @@ fun TaskyTextFieldDarkFilledPreview(
 
 @Composable
 @Preview
-fun TaskyTextFieldDarkErrorPreview(
+private fun TaskyTextFieldDarkErrorPreview(
 ) {
     MaterialTheme(colorScheme = darkColorScheme()) {
         TaskyTextField(
