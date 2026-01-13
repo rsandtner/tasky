@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import dev.rsandtner.sandbox.cmp.tasky.core.ui.theme.TaskyTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -29,7 +30,8 @@ fun TaskyTextField(
             state = state,
             modifier = style,
             interactionSource = interactionSource,
-            textStyle = MaterialTheme.typography.bodyMedium,
+            textStyle = MaterialTheme.typography.bodyMedium
+                .copy(color = MaterialTheme.colorScheme.onSurface),
             keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
             decorator = { content ->
                 Box(
@@ -48,7 +50,7 @@ fun TaskyTextField(
 @Preview
 private fun TaskyTextFieldLightNormalPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyTextField(
             state = TextFieldState(""),
             placeholder = "Placeholder"
@@ -60,7 +62,7 @@ private fun TaskyTextFieldLightNormalPreview(
 @Preview
 private fun TaskyTextFieldLightFilledPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyTextField(
             state = TextFieldState("Some text"),
             placeholder = "Placeholder",
@@ -72,7 +74,7 @@ private fun TaskyTextFieldLightFilledPreview(
 @Preview
 private fun TaskyTextFieldLightErrorPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyTextField(
             state = TextFieldState("Some text"),
             placeholder = "Placeholder",
@@ -85,7 +87,7 @@ private fun TaskyTextFieldLightErrorPreview(
 @Preview
 private fun TaskyTextFieldDarkNormalPreview(
 ) {
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyTextField(
             state = TextFieldState(""),
             placeholder = "Placeholder"
@@ -97,7 +99,7 @@ private fun TaskyTextFieldDarkNormalPreview(
 @Preview
 private fun TaskyTextFieldDarkFilledPreview(
 ) {
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyTextField(
             state = TextFieldState("Some text"),
             placeholder = "Placeholder"
@@ -109,7 +111,7 @@ private fun TaskyTextFieldDarkFilledPreview(
 @Preview
 private fun TaskyTextFieldDarkErrorPreview(
 ) {
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyTextField(
             state = TextFieldState("Some text"),
             placeholder = "Placeholder",

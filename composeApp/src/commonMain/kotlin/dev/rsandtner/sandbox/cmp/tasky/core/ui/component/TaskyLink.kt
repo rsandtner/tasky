@@ -5,7 +5,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import dev.rsandtner.sandbox.cmp.tasky.core.ui.theme.TaskyTheme
+import dev.rsandtner.sandbox.cmp.tasky.core.ui.theme.extended
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -18,7 +19,7 @@ fun TaskyLink(
     Text(
         text = text,
         style = MaterialTheme.typography.labelSmall,
-        color = Color(0xFF8E97FD),
+        color = MaterialTheme.colorScheme.extended.link,
         modifier = modifier
             .clickable(onClick = onClick)
     )
@@ -27,7 +28,7 @@ fun TaskyLink(
 @Composable
 @Preview(showBackground = true)
 private fun TaskyLinkPreview() {
-    MaterialTheme {
+    TaskyTheme {
         TaskyLink(text = "Link", onClick = {})
     }
 }

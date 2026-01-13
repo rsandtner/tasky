@@ -1,8 +1,6 @@
 package dev.rsandtner.sandbox.cmp.tasky.core.ui.component
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,23 +14,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import dev.rsandtner.sandbox.cmp.tasky.core.ui.theme.TaskyTheme
+import dev.rsandtner.sandbox.cmp.tasky.core.ui.theme.extended
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import tasky.composeapp.generated.resources.Res
-import tasky.composeapp.generated.resources.eye_icon
-import tasky.composeapp.generated.resources.eye_off_icon
-import tasky.composeapp.generated.resources.hide_password
-import tasky.composeapp.generated.resources.show_password
+import tasky.composeapp.generated.resources.*
 
 @Composable
 fun TaskyPasswordField(
@@ -52,7 +43,8 @@ fun TaskyPasswordField(
             state = state,
             modifier = style,
             interactionSource = interactionSource,
-            textStyle = MaterialTheme.typography.bodyMedium,
+            textStyle = MaterialTheme.typography.bodyMedium
+                .copy(color = MaterialTheme.colorScheme.onSurface),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             textObfuscationMode = if (isPasswordVisible) TextObfuscationMode.Visible else TextObfuscationMode.Hidden,
             decorator = { content ->
@@ -70,6 +62,7 @@ fun TaskyPasswordField(
                     Icon(
                         imageVector = if (isPasswordVisible) vectorResource(Res.drawable.eye_icon) else vectorResource(Res.drawable.eye_off_icon),
                         contentDescription = if (isPasswordVisible) stringResource(Res.string.hide_password) else stringResource(Res.string.show_password),
+                        tint = MaterialTheme.colorScheme.extended.onSurfaceVariantOpacity,
                         modifier = Modifier
                             .size(24.dp)
                             .clickable(
@@ -91,7 +84,7 @@ fun TaskyPasswordField(
 @Preview
 private fun TaskySecretTextFieldLightNormalPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyPasswordField(
             state = TextFieldState(""),
             isPasswordVisible = false,
@@ -105,7 +98,7 @@ private fun TaskySecretTextFieldLightNormalPreview(
 @Preview
 private fun TaskySecretTextFieldLightFilledPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyPasswordField(
             state = TextFieldState("secret"),
             isPasswordVisible = false,
@@ -119,7 +112,7 @@ private fun TaskySecretTextFieldLightFilledPreview(
 @Preview
 private fun TaskySecretTextFieldLightErrorPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyPasswordField(
             state = TextFieldState("secret"),
             isPasswordVisible = false,
@@ -134,7 +127,7 @@ private fun TaskySecretTextFieldLightErrorPreview(
 @Preview
 private fun TaskySecretTextFieldLightRevealedPreview(
 ) {
-    MaterialTheme {
+    TaskyTheme {
         TaskyPasswordField(
             state = TextFieldState("secret"),
             isPasswordVisible = true,
@@ -149,7 +142,7 @@ private fun TaskySecretTextFieldLightRevealedPreview(
 private fun TaskySecretTextFieldDarkNormalPreview(
 ) {
 
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyPasswordField(
             state = TextFieldState(""),
             isPasswordVisible = false,
@@ -163,7 +156,7 @@ private fun TaskySecretTextFieldDarkNormalPreview(
 @Preview
 private fun TaskySecretTextFieldDarkFilledPreview(
 ) {
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyPasswordField(
             state = TextFieldState("secret"),
             isPasswordVisible = false,
@@ -177,7 +170,7 @@ private fun TaskySecretTextFieldDarkFilledPreview(
 @Preview
 private fun TaskySecretTextFieldDarkErrorPreview(
 ) {
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyPasswordField(
             state = TextFieldState("secret"),
             isPasswordVisible = false,
@@ -192,7 +185,7 @@ private fun TaskySecretTextFieldDarkErrorPreview(
 @Preview
 private fun TaskySecretTextFieldDarkRevealedPreview(
 ) {
-    MaterialTheme(colorScheme = darkColorScheme()) {
+    TaskyTheme(isDarkTheme = true) {
         TaskyPasswordField(
             state = TextFieldState("secret"),
             isPasswordVisible = true,
