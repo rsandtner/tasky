@@ -81,17 +81,18 @@ fun TaskyButton(
 
 @Composable
 @Preview
-fun TaskyButtonPrimaryPreview() {
+private fun TaskyButtonPrimaryPreview() {
     MaterialTheme {
         TaskyButton(
             text = "Button",
-            onClick = {})
+            onClick = {}
+        )
     }
 }
 
 @Composable
 @Preview
-fun TaskyButtonPrimaryDisabledPreview() {
+private fun TaskyButtonPrimaryDisabledPreview() {
     MaterialTheme {
         TaskyButton(
             text = "Button",
@@ -103,7 +104,7 @@ fun TaskyButtonPrimaryDisabledPreview() {
 
 @Composable
 @Preview
-fun TaskyButtonPrimaryLoadingPreview() {
+private fun TaskyButtonPrimaryLoadingPreview() {
     MaterialTheme {
         TaskyButton(
             text = "Button",
@@ -115,7 +116,7 @@ fun TaskyButtonPrimaryLoadingPreview() {
 
 @Composable
 @Preview(showBackground = true)
-fun TaskyButtonSecondaryPreview() {
+private fun TaskyButtonSecondaryPreview() {
     MaterialTheme {
         TaskyButton(
             text = "Button",
@@ -127,7 +128,7 @@ fun TaskyButtonSecondaryPreview() {
 
 @Composable
 @Preview(showBackground = true)
-fun TaskyButtonSecondaryDisabledPreview() {
+private fun TaskyButtonSecondaryDisabledPreview() {
     MaterialTheme {
         TaskyButton(
             text = "Button",
@@ -140,7 +141,7 @@ fun TaskyButtonSecondaryDisabledPreview() {
 
 @Composable
 @Preview(showBackground = true)
-fun TaskyButtonSecondaryLoadingPreview() {
+private fun TaskyButtonSecondaryLoadingPreview() {
     MaterialTheme {
         TaskyButton(
             text = "Button",
