@@ -11,37 +11,41 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-enum class TaskyButtonType(
-    val colors: @Composable () -> ButtonColors,
-    val border: @Composable () -> BorderStroke?
-) {
-    Primary(
-        colors = {
-            ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary,
-                disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = .7f),
-                disabledContentColor = MaterialTheme.colorScheme.onPrimary
-            )
-        },
-        border = { null }
-    ),
-    Secondary(
-        colors = {
-            ButtonDefaults.buttonColors(
-                containerColor = Color.Transparent,
-                contentColor = MaterialTheme.colorScheme.onSurface,
-                disabledContainerColor = Color.Transparent,
-                disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = .7f)
-            )
-        },
-        border = {
-            BorderStroke(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = .7f),
-            )
-        }
-    )
+sealed interface TaskyButtonType {
+
+    @Composable fun colors(): ButtonColors
+    @Composable fun border(): BorderStroke?
+
+    object Primary : TaskyButtonType {
+
+        @Composable
+        override fun colors() = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary,
+            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = .7f),
+            disabledContentColor = MaterialTheme.colorScheme.onPrimary
+        )
+
+        @Composable
+        override fun border(): BorderStroke? = null
+    }
+
+    object Secondary : TaskyButtonType {
+
+        @Composable
+        override fun colors() = ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+            contentColor = MaterialTheme.colorScheme.onSurface,
+            disabledContainerColor = Color.Transparent,
+            disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = .7f)
+        )
+
+        @Composable
+        override fun border() = BorderStroke(
+            width = 1.dp,
+            color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = .7f),
+        )
+    }
 }
 
 @Composable
@@ -79,7 +83,8 @@ fun TaskyButton(
 @Preview
 fun TaskyButtonPrimaryPreview() {
     MaterialTheme {
-        TaskyButton(text = "Button",
+        TaskyButton(
+            text = "Button",
             onClick = {})
     }
 }
@@ -119,6 +124,7 @@ fun TaskyButtonSecondaryPreview() {
         )
     }
 }
+
 @Composable
 @Preview(showBackground = true)
 fun TaskyButtonSecondaryDisabledPreview() {
@@ -131,6 +137,7 @@ fun TaskyButtonSecondaryDisabledPreview() {
         )
     }
 }
+
 @Composable
 @Preview(showBackground = true)
 fun TaskyButtonSecondaryLoadingPreview() {
@@ -143,7 +150,3 @@ fun TaskyButtonSecondaryLoadingPreview() {
         )
     }
 }
-
-
-
-
