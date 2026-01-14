@@ -2,6 +2,7 @@ package dev.rsandtner.sandbox.cmp.tasky.core.ui.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -65,10 +66,12 @@ fun TaskyButton(
         border = type.border(),
     ) {
         Box(
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             CircularProgressIndicator(
-                modifier = Modifier.alpha(if (loading) 1f else 0f),
+                modifier = Modifier
+                    .size(MaterialTheme.typography.labelMedium.lineHeight.value.dp)
+                    .alpha(if (loading) 1f else 0f),
             )
             Text(
                 modifier = Modifier.alpha(if (loading) 0f else 1f),
