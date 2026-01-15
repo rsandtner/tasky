@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import dev.rsandtner.sandbox.cmp.tasky.core.ui.theme.extended
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 sealed interface TaskyButtonType {
@@ -23,8 +24,8 @@ sealed interface TaskyButtonType {
         override fun colors() = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary,
-            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = .7f),
-            disabledContentColor = MaterialTheme.colorScheme.onPrimary
+            disabledContainerColor = MaterialTheme.colorScheme.extended.onSurfaceVariantOpacity,
+            disabledContentColor = MaterialTheme.colorScheme.onPrimary,
         )
 
         @Composable
@@ -72,6 +73,7 @@ fun TaskyButton(
                 modifier = Modifier
                     .size(MaterialTheme.typography.labelMedium.lineHeight.value.dp)
                     .alpha(if (loading) 1f else 0f),
+                color = MaterialTheme.colorScheme.onPrimary
             )
             Text(
                 modifier = Modifier.alpha(if (loading) 0f else 1f),

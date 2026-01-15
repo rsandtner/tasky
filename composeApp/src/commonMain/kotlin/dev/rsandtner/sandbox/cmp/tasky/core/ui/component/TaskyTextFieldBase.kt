@@ -41,7 +41,6 @@ internal fun TaskyTextFieldBase(
             shape = textFieldShape
         )
         .padding(horizontal = 20.dp, vertical = 12.dp)
-        .heightIn(min = 24.dp) // without a min height, the textfield gets a little bit smaller when starting to type on macOS
 
     content(style, interactionSource, { placeholder, state -> Placeholder(placeholder, state, isFocused)})
 }
